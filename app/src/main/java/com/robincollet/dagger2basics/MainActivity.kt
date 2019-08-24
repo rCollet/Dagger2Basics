@@ -1,10 +1,9 @@
 package com.robincollet.dagger2basics
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.robincollet.dagger2basics.di.CarComponent
 import com.robincollet.dagger2basics.di.DaggerCarComponent
-import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
