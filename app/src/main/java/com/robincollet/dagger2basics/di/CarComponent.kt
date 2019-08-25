@@ -1,10 +1,10 @@
 package com.robincollet.dagger2basics.di
 
-import com.robincollet.dagger2basics.Car
+import com.robincollet.dagger2basics.MainActivity
 import dagger.Component
 
 @Component(modules = [WheelsModule::class])
 interface CarComponent {
 
-    fun getCar(): Car
+    fun inject(mainActivity: MainActivity)
 }
