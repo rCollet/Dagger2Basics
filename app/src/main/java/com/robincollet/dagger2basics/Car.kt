@@ -1,6 +1,7 @@
 package com.robincollet.dagger2basics
 
 import javax.inject.Inject
+import javax.inject.Named
 
 class Car @Inject constructor(engine: Engine, wheels: Wheels) {
 
@@ -18,24 +19,24 @@ class Car @Inject constructor(engine: Engine, wheels: Wheels) {
     }
 }
 
-
-
 interface Engine {
     fun start()
 }
 
-class DieselEngine(private val horsePower: Int) : Engine {
+class DieselEngine @Inject constructor(private val horsePower: Int) : Engine {
     override fun start() {
         println("Diesel engine started with $horsePower horse power")
     }
 
 }
-class PetrolEngine @Inject constructor() : Engine {
+
+class PetrolEngine @Inject constructor(@Named("horsePower") private val horsePower: Int) : Engine {
     override fun start() {
-        println("Petrol engine started")
+        println("Petrol engine started with $horsePower horse power")
     }
 
 }
+
 class Remote @Inject constructor()
 
 class Wheels(rims: Rims, tires: Tires) {
@@ -43,5 +44,6 @@ class Wheels(rims: Rims, tires: Tires) {
         println("Wheels are built...")
     }
 }
+
 class Tires
 class Rims
