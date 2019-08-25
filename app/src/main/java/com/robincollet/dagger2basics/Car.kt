@@ -24,9 +24,9 @@ interface Engine {
     fun start()
 }
 
-class DieselEngine @Inject constructor() : Engine {
+class DieselEngine(private val horsePower: Int) : Engine {
     override fun start() {
-        println("Diesel engine started")
+        println("Diesel engine started with $horsePower horse power")
     }
 
 }
