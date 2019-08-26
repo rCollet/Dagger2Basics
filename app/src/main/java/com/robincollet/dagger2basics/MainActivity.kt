@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
     lateinit var car: Car
+    lateinit var car2: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +19,17 @@ class MainActivity : AppCompatActivity() {
             .horsePower(150)
             .engineCapacity(1400)
             .build()
-        component.inject(this)
+        car = component.getCar()
+
+        val component2 = DaggerCarComponent
+            .builder()
+            .horsePower(150)
+            .engineCapacity(1400)
+            .build()
+        component2.inject(this)
+        car2 = component2.getCar()
 
         car.drive()
+        car2.drive()
     }
 }

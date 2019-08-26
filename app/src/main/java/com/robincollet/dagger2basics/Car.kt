@@ -3,14 +3,14 @@ package com.robincollet.dagger2basics
 import javax.inject.Inject
 import javax.inject.Named
 
-class Car @Inject constructor(engine: Engine, wheels: Wheels) {
+class Car @Inject constructor(engine: Engine, wheels: Wheels, private val driver: Driver) {
 
     init {
         engine.start()
     }
 
     fun drive() {
-        println("Driving...")
+        println("$this Driving... with $driver")
     }
 
     @Inject
