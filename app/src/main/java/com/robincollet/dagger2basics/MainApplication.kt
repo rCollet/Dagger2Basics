@@ -3,6 +3,7 @@ package com.robincollet.dagger2basics
 import android.app.Application
 import com.robincollet.dagger2basics.di.AppComponent
 import com.robincollet.dagger2basics.di.DaggerAppComponent
+import com.robincollet.dagger2basics.di.DriverModule
 
 class MainApplication : Application() {
 
@@ -12,6 +13,6 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.create()
+        appComponent = DaggerAppComponent.factory().create(DriverModule("Joe"))
     }
 }

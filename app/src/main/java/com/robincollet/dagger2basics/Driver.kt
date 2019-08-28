@@ -1,3 +1,3 @@
 package com.robincollet.dagger2basics
 
-class Driver
+data class Driver(val name: String)

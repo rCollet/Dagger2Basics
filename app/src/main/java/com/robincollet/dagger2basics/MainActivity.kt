@@ -17,10 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         (application as MainApplication)
             .appComponent
-            .getActivityComponentBuilder()
-            .horsePower(140)
-            .engineCapacity(100)
-            .build()
+            .getActivityComponentFactory()
+            .create(140, 100)
             .inject(this)
 
         car.drive()
